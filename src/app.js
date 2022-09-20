@@ -26,7 +26,7 @@ app.use(cors({
     }
     return false;
   },
-  credentials: true // 允许跨域的时候带着 cookie
+  credentials: true, // 允许跨域的时候带着 cookie
 }))
 
 // 配置 session
@@ -35,7 +35,9 @@ app.use(session({
   cookie: {
     path: '/',
     httpOnly: true,
-    maxAge: 30 * 24 * 60 * 60 * 1000
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    sameSite: 'none',
+    secure: true
   }
 }))
 
