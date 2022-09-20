@@ -17,7 +17,15 @@ onerror(app)
 
 // 服务端支持跨域
 app.use(cors({
-  origin: 'http://localhost:8081', // 支持前端哪个域，可以跨域
+  // origin: 'http://localhost:8081', // 支持前端哪个域，可以跨域
+  origin: function (ctx) {
+    const requestOrigin = ctx.get('Origin');
+    const whiteList = ['http://localhost:8080', 'https://study-message-board-web.vercel.app'];
+    if (whiteList.includes(requestOrigin)) {
+      return requestOrigin;
+    }
+    return false;
+  },
   credentials: true // 允许跨域的时候带着 cookie
 }))
 
