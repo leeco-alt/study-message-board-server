@@ -26,7 +26,7 @@ app.use(cors({
     }
     return false;
   },
-  credentials: true, // 允许跨域的时候带着 cookie
+  credentials: true // 允许跨域的时候带着 cookie
 }))
 
 // 配置 session
