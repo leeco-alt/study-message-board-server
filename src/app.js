@@ -30,6 +30,7 @@ app.use(cors({
 }))
 
 // 配置 session
+app.proxy = true;
 app.keys = ['dasUUN*^^a31244']
 app.use(session({
   cookie: {
@@ -37,7 +38,7 @@ app.use(session({
     httpOnly: true,
     maxAge: 30 * 24 * 60 * 60 * 1000,
     sameSite: 'none',
-    // secure: true
+    secure: true
   }
 }))
 
